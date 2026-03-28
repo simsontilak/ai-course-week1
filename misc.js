@@ -25,6 +25,21 @@ function reverseString(str) {
 
 // Exercise 4: Process User Data 
 
+function isNonEmptyString(value) {
+  return typeof value === "string" && value.trim() !== "";
+}
+
+function isValidAdultUser(user) {
+  return (
+    user &&
+    typeof user === "object" &&
+    Number.isFinite(user.age) &&
+    user.age >= 18 &&
+    isNonEmptyString(user.name) &&
+    isNonEmptyString(user.email)
+  );
+}
+
 function processUserData(users) { 
   if (!Array.isArray(users)) {
     throw new TypeError("processUserData expects an array of user objects.");
@@ -32,17 +47,7 @@ function processUserData(users) {
 
   try {
     return users
-      .filter(
-        user =>
-          user &&
-          typeof user === "object" &&
-          Number.isFinite(user.age) &&
-          user.age >= 18 &&
-          typeof user.name === "string" &&
-          user.name.trim() !== "" &&
-          typeof user.email === "string" &&
-          user.email.trim() !== ""
-      )
+      .filter(isValidAdultUser)
       .map(({ name, email }) => ({
         name: name.trim(),
         email: email.trim(),
