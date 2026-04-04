@@ -4,10 +4,52 @@ body {
   background-color: #f3f2ef;
 }
 
-/* TODO: Add sidebar styles */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 220px;
+  height: 100vh;
+  background-color: #ffffff;
+  border-right: 1px solid #ddd;
+  padding: 1.25rem 1rem;
+  box-sizing: border-box;
+}
+
+.sidebar-brand {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0a66c2;
+  margin-bottom: 1.5rem;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #1f2937;
+  padding: 0.65rem 0.75rem;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.nav-link:hover {
+  background-color: #e8f1fb;
+  color: #0a66c2;
+}
+
+.nav-link.active {
+  background-color: #0a66c2;
+  color: #ffffff;
+}
 
 .main-content {
-  margin-left: 0;
+  margin-left: 220px;
 }
 
 .header {
